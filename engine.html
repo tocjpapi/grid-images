@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL Engine</title>
+    <link rel="stylesheet" href="s.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+</head>
+<body>
+<div class="container-all" id="container">
+    <canvas id="webgl-canvas"></canvas>
+
+    <div id="all" class="scroll-content">
+        <div class="elder" style="background: #000;">
+            <div class="big-boss">
+            <div class="version" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content">4</p>
+            </div>
+        </div>
+
+        <div class="emotion" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+        <p id="text-content"></p>
+        </div>
+
+
+
+
+            <div class="start" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas n-o"></canvas>
+            <p id="text-content"></p>
+            </div>
+
+
+            
+            <div class="contain-image  n-o" >
+                <canvas class="cvs" data-img="static/media/2.jpg"></canvas>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="elder ">
+            <div class="section">
+            <div class="number1" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal">
+                    Yeah, because who wouldn’t want to create an entire app using only Web GL, right? It’s not like there are easier ways to achieve the same results. And who doesn’t enjoy the thrill of debugging for hours just because one div is slightly off? Sounds like a blast, right? No? Okay then 
+                </p>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+
+    <div class="grandeur">
+        <div class="hover-text sticky" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content">GUCCI</p>
+
+        </div>
+
+        <div class="first-sticky-element-boss element-boss">
+          <div class="first-sticky-element l-m">
+            <div class="cross" >
+                <div class="captain cross" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas cross"></canvas>
+                <p id="text-content">✛</p>
+             </div>
+            </div>
+            <canvas class="cvs" data-img="static/media/3.jpg"></canvas>
+        </div>
+
+
+    </div>
+
+    <div class="second-sticky-element-boss element-boss">
+        <div class="second-sticky-element l-m">
+            <div class="cross" >
+                <div class="captain cross" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas cross"></canvas>
+                <p id="text-content">✛</p>
+             </div>
+            </div>
+          <canvas class="cvs" data-img="static/media/5.jpg"></canvas>
+      </div>
+    </div>
+
+
+    <div class="third-sticky-element-boss element-boss">
+        <div class="third-sticky-element l-m">
+            <div class="cross" >
+                <div class="captain cross" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas cross"></canvas>
+                <p id="text-content">✛</p>
+             </div>
+            </div>
+          <canvas class="cvs" data-img="static/media/4.jpg"></canvas>
+      </div>
+    </div>
+    
+</div>
+
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+
+<div class="last">
+    <div class="big-picture">
+
+            <canvas class="cvs" data-img="static/media/8.jpg"></canvas>
+    </div>
+    <div class="right-side">
+     
+
+        <div class="right-side-inner">
+            <div class="vibe" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal">
+                    Made by Lucien in September 2024 for the Love of Development
+                </p>
+            </div>
+
+            <div class="spacer"></div>
+<div class="general" >
+
+
+            <div class="point point-2"id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal"><a href="index.html"><span>Ephemeral</span></a> <br><span class="opt">Opus </span> <br><span>Reverence </span><br><span>Evoke </span></p>
+            </div>
+   
+
+    </div>
+
+
+
+        </div>
+        <div class="back-to-top"id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">BACK TO TOP ↑</p>
+        </div>
+
+
+        <div class="item-no"id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">24</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="tint"></div>
+
+
+
+
+
+
+
+<script>
+// Configuration object for refined smoothing and timing adjustments
+const animationConfig = {
+    easingFunction: t => 1 - Math.pow(1 - t, 5),
+    revealHeight: 100,
+    staggerDelay: 0.07,
+    animationDuration: 1800
+};
+
+// Function to apply advanced anti-aliasing
+function applyAdvancedAntiAliasing(ctx, text, x, y, color) {
+    // Define multiple layers with slightly different offsets and alpha values
+    const layers = [
+        { offsetX: 0, offsetY: 0, alpha: 0.9 },
+        { offsetX: -0.1, offsetY: 0, alpha: 0 },
+        { offsetX: 0, offsetY: -0.1, alpha: 0 },
+        { offsetX: -0.1, offsetY: -0.1, alpha: 0}
+    ];
+
+    layers.forEach(layer => {
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.globalAlpha = layer.alpha;
+        ctx.fillText(text, x + layer.offsetX, y + layer.offsetY);
+        ctx.restore();
+    });
+}
+
+
+
+// Function to wrap and render text on canvas with improved quality
+function wrapText(ctx, text, x, y, maxWidth, lineHeight, textAlign, progress, delay, animate, color) {
+    const words = text.split(' ');
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = ctx.measureText(currentLine + ' ' + word).width;
+        if (width < maxWidth) {
+            currentLine += ' ' + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+
+    lines.forEach((line, i) => {
+        const lineX = textAlign === 'center' ? x - ctx.measureText(line).width / 2
+                       : textAlign === 'right' ? x - ctx.measureText(line).width
+                       : x;
+        const lineY = y + i * lineHeight;
+        const startY = lineY + animationConfig.revealHeight;
+
+        let currentY = lineY;
+        if (animate) {
+            const lineProgress = Math.min(1, Math.max(0, (progress - i * delay) / (animationConfig.animationDuration / 1000)));
+            const easedProgress = animationConfig.easingFunction(lineProgress);
+            currentY = startY - animationConfig.revealHeight * easedProgress;
+        }
+
+        ctx.textBaseline = 'top';
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(0, lineY, maxWidth, lineHeight);
+        ctx.clip();
+
+        // Apply advanced anti-aliasing
+        applyAdvancedAntiAliasing(ctx, line, lineX, currentY, color);
+
+        ctx.restore();
+    });
+}
+
+// Function to create and animate text on canvas with WebGL acceleration
+function renderText(wrapper, animate = false) {
+    let textCanvas = wrapper.querySelector('.text-canvas');
+    const textContent = wrapper.querySelector('#text-content');
+    const ctx = textCanvas ? textCanvas.getContext('2d', { alpha: true }) : null;
+
+    if (!textCanvas) {
+        textCanvas = document.createElement('canvas');
+        textCanvas.className = 'text-canvas';
+        wrapper.insertBefore(textCanvas, textContent);
+    }
+
+    textCanvas.style.opacity = '1';
+    const ratio = Math.max(window.devicePixelRatio || 1, 2); // Increased ratio for even higher resolution
+    const contentWidth = textContent.offsetWidth;
+    const contentHeight = textContent.offsetHeight;
+    textCanvas.width = Math.floor(contentWidth * ratio);
+    textCanvas.height = Math.floor(contentHeight * ratio);
+    textCanvas.style.width = contentWidth + 'px';
+    textCanvas.style.height = contentHeight + 'px';
+
+    const offscreenCanvas = document.createElement('canvas');
+    const offscreenCtx = offscreenCanvas.getContext('2d', { alpha: true });
+    offscreenCanvas.width = textCanvas.width;
+    offscreenCanvas.height = textCanvas.height;
+    offscreenCtx.scale(ratio, ratio);
+
+    offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+
+    offscreenCtx.imageSmoothingEnabled = true;
+    offscreenCtx.imageSmoothingQuality = 'high';
+
+    const computedStyles = window.getComputedStyle(textContent);
+    offscreenCtx.font = `${computedStyles.fontStyle} ${computedStyles.fontWeight} ${computedStyles.fontSize} ${computedStyles.fontFamily}`;
+    const color = computedStyles.color;
+    offscreenCtx.textBaseline = 'top';
+    offscreenCtx.textAlign = computedStyles.textAlign;
+
+    offscreenCtx.fontKerning = 'normal';
+    offscreenCtx.fontVariantLigatures = 'normal';
+
+    let text = textContent.textContent;
+    switch (computedStyles.textTransform) {
+        case 'uppercase': text = text.toUpperCase(); break;
+        case 'lowercase': text = text.toLowerCase(); break;
+        case 'capitalize': text = text.replace(/\b\w/g, char => char.toUpperCase()); break;
+    }
+
+    const x = computedStyles.textAlign === 'center' ? contentWidth / 2
+                : computedStyles.textAlign === 'right' ? contentWidth
+                : 0;
+    const y = 0;
+    const maxWidth = contentWidth;
+    const lineHeight = parseFloat(computedStyles.lineHeight) || parseFloat(computedStyles.fontSize) * 1.2;
+    const staggerDelay = animationConfig.staggerDelay;
+
+    function updateCanvas() {
+        offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+        wrapText(offscreenCtx, text, x, y, maxWidth, lineHeight, computedStyles.textAlign, 1, staggerDelay, false, color);
+        ctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+        ctx.drawImage(offscreenCanvas, 0, 0);
+    }
+
+    if (!animate) {
+        updateCanvas();
+    } else {
+        let progress = 0;
+        let lastTimestamp = performance.now();
+        const finalFrame = animationConfig.animationDuration / 1000 + staggerDelay * text.split(' ').length;
+
+        function updateAnimation(now) {
+            const deltaTime = (now - lastTimestamp) / 1000;
+            lastTimestamp = now;
+            progress += deltaTime;
+
+            if (progress <= finalFrame) {
+                offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+                wrapText(offscreenCtx, text, x, y, maxWidth, lineHeight, computedStyles.textAlign, progress, staggerDelay, true, color);
+                ctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+                ctx.drawImage(offscreenCanvas, 0, 0);
+                requestAnimationFrame(updateAnimation);
+            } else {
+                progress = finalFrame;
+                offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+                wrapText(offscreenCtx, text, x, y, maxWidth, lineHeight, computedStyles.textAlign, progress, staggerDelay, true, color);
+                ctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+                ctx.drawImage(offscreenCanvas, 0, 0);
+            }
+        }
+
+        requestAnimationFrame(updateAnimation);
+    }
+}
+
+// The rest of the code (handleIntersection, observer setup, resize handler, etc.) remains the same
+
+
+// The rest of the code (handleIntersection, observer setup, resize handler, etc.) remains the same
+
+    
+    // Intersection Observer for triggering animation when in view
+    function handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const wrapper = entry.target;
+                if (wrapper.querySelector('.mini-reveal') && !wrapper.classList.contains('animated')) {
+                    renderText(wrapper, true); // Animate .mini-reveal elements
+                    wrapper.classList.add('animated'); // Mark as animated
+                } else {
+                    renderText(wrapper, false); // Render other elements without animation
+                }
+            }
+        });
+    }
+    
+    const observer = new IntersectionObserver(handleIntersection, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+    
+    // Observe all #text-wrapper elements
+    document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+        observer.observe(wrapper);
+    });
+    
+    // Throttled resize handler
+    let resizeTimeout;
+    function handleResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+                if (wrapper.classList.contains('animated')) {
+                    // Only update canvas size for already animated elements
+                    const textCanvas = wrapper.querySelector('.text-canvas');
+                    if (textCanvas) {
+                        const ratio = Math.max(window.devicePixelRatio || 1, 2);;
+                        const contentWidth = wrapper.querySelector('#text-content').offsetWidth;
+                        const contentHeight = wrapper.querySelector('#text-content').offsetHeight;
+                        textCanvas.width = Math.floor(contentWidth * ratio);
+                        textCanvas.height = Math.floor(contentHeight * ratio);
+                        textCanvas.style.width = contentWidth + 'px';
+                        textCanvas.style.height = contentHeight + 'px';
+                        // Redraw the text to fit the new size
+                        renderText(wrapper, true);
+                    }
+                } else {
+                    // For non-animated elements, just re-observe
+                    observer.unobserve(wrapper);
+                    observer.observe(wrapper);
+                }
+            });
+        }, 100); // Adjusted delay for quicker responsiveness
+    }
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Initial render for all visible text content
+    document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+        if (wrapper.getBoundingClientRect().bottom < window.innerHeight) {
+            renderText(wrapper, wrapper.querySelector('.mini-reveal') !== null && !wrapper.classList.contains('animated'));
+        }
+    });
+    
+    // Ensure resources are loaded before starting animations
+    window.addEventListener('load', () => {
+        document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+            if (wrapper.getBoundingClientRect().bottom < window.innerHeight) {
+                renderText(wrapper, wrapper.querySelector('.mini-reveal') !== null && !wrapper.classList.contains('animated'));
+            }
+        });
+    });
+    
+</script>
+    
+    
+
+
+
+
+    
+    
+    
+    
+
+    
+
+
+
+
+    
+    
+
+  
+
+
+
+
+<script>
+    const dpr = window.devicePixelRatio || 1;
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    function resizeCanvas(cvs3d, ctx3d, img, tex) {
+        const newWidth = cvs3d.clientWidth * dpr;
+        const newHeight = cvs3d.clientHeight * dpr;
+
+        if (cvs3d.width !== newWidth || cvs3d.height !== newHeight) {
+            cvs3d.width = newWidth;
+            cvs3d.height = newHeight;
+            ctx3d.viewport(0, 0, cvs3d.width, cvs3d.height);
+            drawImage(ctx3d, img, cvs3d.width, cvs3d.height, tex);
+        }
+    }
+
+    function drawImage(ctx3d, img, canvasWidth, canvasHeight, tex) {
+        if (!img.complete) return;
+
+        const imgAspectRatio = img.width / img.height;
+        const canvasAspectRatio = canvasWidth / canvasHeight;
+
+        let scaleX, scaleY, offsetX, offsetY;
+
+        if (canvasAspectRatio > imgAspectRatio) {
+            scaleX = 1;
+            scaleY = imgAspectRatio / canvasAspectRatio;
+            offsetX = 0;
+            offsetY = (1 - scaleY) / 2;
+        } else {
+            scaleX = canvasAspectRatio / imgAspectRatio;
+            scaleY = 1;
+            offsetX = (1 - scaleX) / 2;
+            offsetY = 0;
+        }
+
+        const texCoords = new Float32Array([
+            offsetX, offsetY,
+            offsetX, offsetY + scaleY,
+            offsetX + scaleX, offsetY + scaleY,
+            offsetX + scaleX, offsetY
+        ]);
+
+        ctx3d.bindBuffer(ctx3d.ARRAY_BUFFER, ctx3d.createBuffer());
+        ctx3d.bufferData(ctx3d.ARRAY_BUFFER, new Float32Array([
+            -1, 1,  -1, -1,  1, -1,  1, 1
+        ]), ctx3d.STATIC_DRAW);
+        ctx3d.vertexAttribPointer(ctx3d.getAttribLocation(ctx3d.program, "aVertex"), 2, ctx3d.FLOAT, false, 0, 0);
+        ctx3d.enableVertexAttribArray(ctx3d.getAttribLocation(ctx3d.program, "aVertex"));
+
+        ctx3d.bindBuffer(ctx3d.ARRAY_BUFFER, ctx3d.createBuffer());
+        ctx3d.bufferData(ctx3d.ARRAY_BUFFER, texCoords, ctx3d.STATIC_DRAW);
+        ctx3d.vertexAttribPointer(ctx3d.getAttribLocation(ctx3d.program, "aUV"), 2, ctx3d.FLOAT, false, 0, 0);
+        ctx3d.enableVertexAttribArray(ctx3d.getAttribLocation(ctx3d.program, "aUV"));
+
+        ctx3d.clear(ctx3d.COLOR_BUFFER_BIT);
+        ctx3d.bindTexture(ctx3d.TEXTURE_2D, tex);
+        ctx3d.drawArrays(ctx3d.TRIANGLE_FAN, 0, 4);
+    }
+
+    function createShader(ctx3d, type, source) {
+        const shader = ctx3d.createShader(type);
+        ctx3d.shaderSource(shader, source);
+        ctx3d.compileShader(shader);
+        return shader;
+    }
+
+    function initializeCanvas(cvs3d) {
+        const ctx3d = cvs3d.getContext('webgl', { preserveDrawingBuffer: true });
+        const img = new Image();
+        img.src = cvs3d.getAttribute('data-img');
+
+        const vertexShaderSrc = `
+            attribute vec2 aVertex;
+            attribute vec2 aUV;
+            varying vec2 vTex;
+            void main(void) {
+                gl_Position = vec4(aVertex, 0.0, 1.0);
+                vTex = aUV;
+            }
+        `;
+        const fragmentShaderSrc = `
+            precision highp float;
+            varying vec2 vTex;
+            uniform sampler2D sampler0;
+            void main(void) {
+                gl_FragColor = texture2D(sampler0, vTex);
+            }
+        `;
+
+        const vertShader = createShader(ctx3d, ctx3d.VERTEX_SHADER, vertexShaderSrc);
+        const fragShader = createShader(ctx3d, ctx3d.FRAGMENT_SHADER, fragmentShaderSrc);
+
+        const program = ctx3d.createProgram();
+        ctx3d.attachShader(program, vertShader);
+        ctx3d.attachShader(program, fragShader);
+        ctx3d.linkProgram(program);
+        ctx3d.useProgram(program);
+        ctx3d.program = program;
+
+        const tex = ctx3d.createTexture();
+        ctx3d.bindTexture(ctx3d.TEXTURE_2D, tex);
+        ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_WRAP_S, ctx3d.CLAMP_TO_EDGE);
+        ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_WRAP_T, ctx3d.CLAMP_TO_EDGE);
+        ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_MIN_FILTER, ctx3d.LINEAR);
+        ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_MAG_FILTER, ctx3d.LINEAR);
+        img.onload = () => {
+            ctx3d.texImage2D(ctx3d.TEXTURE_2D, 0, ctx3d.RGBA, ctx3d.RGBA, ctx3d.UNSIGNED_BYTE, img);
+            resizeCanvas(cvs3d, ctx3d, img, tex);
+        };
+
+        const debouncedResize = debounce(() => {
+            requestAnimationFrame(() => resizeCanvas(cvs3d, ctx3d, img, tex));
+        }, 250);
+        window.addEventListener('resize', debouncedResize);
+
+        const observer = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                if (entry.target.classList.contains('cvs2')) {
+                    requestAnimationFrame(() => resizeCanvas(entry.target, ctx3d, img, tex));
+                }
+            }
+        });
+        observer.observe(cvs3d);
+    }
+
+    document.querySelectorAll('.cvs').forEach(cvs => initializeCanvas(cvs));
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    function initParallaxScroll() {
+        let targetScrollY = 0, scrollY = 0, maxScrollY = 0, isDragging = false, startY = 0;
+        const smoothness = 0.08, dragSpeed = 2.2, speed = 0.3, 
+        scroller = document.querySelector('.scroll-content');
+    
+        const handleScroll = deltaY => targetScrollY = Math.max(0, Math.min(targetScrollY + deltaY, maxScrollY));
+        const smoothScroll = () => (scrollY += (targetScrollY - scrollY) * smoothness, scroller.style.transform = `translateY(${-scrollY}px)`, document.querySelectorAll('.contain-image').forEach(p => p.style.transform = `translateY(${scrollY * speed}px)`), requestAnimationFrame(smoothScroll));
+        
+        ['wheel', 'keydown', 'mousedown', 'mousemove', 'mouseup', 'resize', 'load'].forEach(e => window.addEventListener(e, evt => {
+            e == 'wheel' && handleScroll(evt.deltaY * 0.5);
+            e == 'keydown' && handleScroll(['ArrowDown', 'ArrowRight'].includes(evt.key) ? 200 : ['ArrowUp', 'ArrowLeft'].includes(evt.key) ? -200 : 0);
+            e == 'mousedown' ? (isDragging = true, startY = evt.clientY) : e == 'mousemove' && isDragging && (handleScroll(-(evt.clientY - startY) * dragSpeed), startY = evt.clientY);
+            (e == 'mouseup') && (isDragging = false), (e == 'resize' || e == 'load') && (maxScrollY = Math.max(0, scroller.offsetHeight - window.innerHeight));
+        }));
+    
+        smoothScroll();
+    }
+    
+    initParallaxScroll();
+    </script>
+    
+
+    
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'CANVAS') {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('webgl-canvas');
+        const gl = canvas.getContext('webgl');
+
+        let maxScrollY = 0;
+        let targetScrollY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+            updateMaxScroll();
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
+
+        const vertexShaderSource = 
+        `attribute vec4 a_position;
+        attribute vec2 a_texcoord;
+        varying vec2 v_texcoord;
+        void main() {
+            gl_Position = a_position;
+            v_texcoord = a_texcoord;
+        }`;
+
+        const fragmentShaderSource = 
+        `precision mediump float;
+        varying vec2 v_texcoord;
+        uniform sampler2D u_texture;
+        uniform float u_blurAmount;
+
+        void main() {
+            vec4 color = vec4(0.0);
+            for (float x = -2.0; x <= 2.0; x += 1.0) {
+                for (float y = -2.0; y <= 2.0; y += 1.0) {
+                    color += texture2D(u_texture, v_texcoord + vec2(x, y) * u_blurAmount);
+                }
+            }
+            gl_FragColor = color / 25.0;
+        }`;
+
+        function compileShader(gl, source, type) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Shader compilation failed:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        function createProgram(gl, vertexShaderSource, fragmentShaderSource) {
+            const vertexShader = compileShader(gl, vertexShaderSource, gl.VERTEX_SHADER);
+            const fragmentShader = compileShader(gl, fragmentShaderSource, gl.FRAGMENT_SHADER);
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Program linking failed:', gl.getProgramInfoLog(program));
+                gl.deleteProgram(program);
+                return null;
+            }
+            return program;
+        }
+
+        const program = createProgram(gl, vertexShaderSource, fragmentShaderSource);
+        gl.useProgram(program);
+
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        const texcoordLocation = gl.getAttribLocation(program, 'a_texcoord');
+        const textureLocation = gl.getUniformLocation(program, 'u_texture');
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1, 0, 0,
+             1, -1, 1, 0,
+            -1,  1, 0, 1,
+            -1,  1, 0, 1,
+             1, -1, 1, 0,
+             1,  1, 1, 1
+        ]), gl.STATIC_DRAW);
+
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 4 * 4, 0);
+
+        gl.enableVertexAttribArray(texcoordLocation);
+        gl.vertexAttribPointer(texcoordLocation, 2, gl.FLOAT, false, 4 * 4, 2 * 4);
+
+        function drawScene() {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(drawScene);
+        }
+
+        drawScene();
+
+        let scrollY = 0;
+        const smoothness = 0.08;
+
+        function smoothScroll() {
+            scrollY += (targetScrollY - scrollY) * smoothness;
+            const scrollContent = document.querySelector('.scroll-content');
+            if (scrollContent) {
+                scrollContent.style.transform = `translateY(${-Math.round(scrollY)}px)`;
+            }
+
+            document.querySelectorAll('.sticky').forEach(stickyEl => {
+                const parent = stickyEl.parentElement;
+                const parentRect = parent.getBoundingClientRect();
+                const stickyRect = stickyEl.getBoundingClientRect();
+                const parentTop = parentRect.top;
+                const parentBottom = parentRect.bottom;
+                const stickyHeight = stickyRect.height;
+
+                if (parentTop <= 0 && parentBottom > stickyHeight) {
+                    // Stick to the top
+                    stickyEl.style.transform = `translateY(${-parentTop}px)`;
+                } else if (parentBottom <= stickyHeight) {
+                    // Stop at the bottom of the parent
+                    const maxTranslate = parentRect.height - stickyHeight;
+                    stickyEl.style.transform = `translateY(${maxTranslate}px)`;
+                } else {
+                    // Reset to original position
+                    stickyEl.style.transform = 'translateY(0)';
+                }
+            });
+
+            requestAnimationFrame(smoothScroll);
+        }
+        
+        function handleWheel(event) {
+            const scrollMultiplier = 0.5;
+            targetScrollY += event.deltaY * scrollMultiplier;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        window.addEventListener('wheel', handleWheel);
+        smoothScroll();
+
+        let isDragging = false;
+        let startY = 0;
+        const dragSpeedMultiplier = 2.2; 
+
+        function handleMouseDown(event) {
+            isDragging = true;
+            startY = event.clientY;
+        }
+
+        function handleMouseMove(event) {
+            if (!isDragging) return;
+
+            const deltaY = (event.clientY - startY) * dragSpeedMultiplier;
+            startY = event.clientY;
+
+            targetScrollY -= deltaY;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+        }
+
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        window.addEventListener('mouseleave', handleMouseUp);
+
+        function handleKeyDown(event) {
+            const scrollStep = 200;
+
+            if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+                targetScrollY += scrollStep;
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                targetScrollY -= scrollStep;
+            }
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        function updateMaxScroll() {
+            const scrollContent = document.querySelector('.scroll-content');
+            if (scrollContent) {
+                maxScrollY = Math.max(0, scrollContent.offsetHeight - window.innerHeight);
+                targetScrollY = Math.min(targetScrollY, maxScrollY);
+            } else {
+                console.error('.scroll-content not found.');
+            }
+        }
+
+        window.addEventListener('load', updateMaxScroll);
+        window.addEventListener('resize', resizeCanvas);
+
+        function render() {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            requestAnimationFrame(render);
+        }
+
+        render();
+    });
+</script>
+
+
+
+
+
+
+<script>
+
+document.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+
+document.addEventListener('touchmove', function(event) {
+    if (event.scale !== 1) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="s.css">
+    <style>
+        ::-moz-selection {
+            color: #fff;
+            background: #000;
+            text-shadow: none;
+        }
+        ::selection {
+            color: #fff;
+            background: #000;
+            text-shadow: none;
+        }
+        @font-face {
+            font-family: 'stawp';
+            src: url(/static/font/nm5.woff2);
+        }
+        @font-face {
+            font-family: 'yass';
+            src: url(/static/font/nm5.woff2);
+        }
+        @font-face {
+            font-family: 'lulu';
+            src: url(../font/nm5.woff2);
+        }
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'yass';
+            background-color: #f7f7f7;
+            color: #302e2e;
+            font-size: calc(100vw / 1512 * 10);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        #webgl-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: none;
+            image-rendering: auto; 
+        }
+        #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .scroll-content {
+            position: absolute;
+            width: 100vw;
+            height: fit-content;
+            box-sizing: border-box;
+        }
+        .elder {
+            height: 110vh;
+            width: 100vw;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .number1 {
+            width: 57rem;
+            line-height: 5.2rem;
+            font-size: 3.1rem;
+            position: relative;
+        }
+        .text-canvas {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            width: fit-content;
+            height: fit-content;
+        }
+        .mini-paragrapher {
+            margin-left: 60px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="container-all" id="container">
+    <canvas id="webgl-canvas"></canvas>
+
+
+    <canvas id="test-canvas" width="800" height="200"></canvas>
+<script>
+  const canvas = document.getElementById('test-canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.font = '40px Arial';
+  ctx.fillStyle = 'black';
+  ctx.textBaseline = 'top';
+  ctx.textAlign = 'left';
+  ctx.fillText('Hover Me', 50, 50);
+</script>
+
+</div>
+
+<script>
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = ctx.measureText(testLine);
+    const testWidth = metrics.width;
+    if (testWidth > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+}
+
+function cloneTextToCanvas(opacity = 1) {
+  const textWrappers = document.querySelectorAll('#text-wrapper');
+
+  textWrappers.forEach(wrapper => {
+    const textCanvas = wrapper.querySelector('.text-canvas');
+    const textContent = wrapper.querySelector('#text-content');
+    const ctx = textCanvas.getContext('2d');
+
+    const ratio = window.devicePixelRatio || 2;
+    const contentWidth = textContent.offsetWidth;
+    const contentHeight = textContent.offsetHeight;
+    textCanvas.width = contentWidth * ratio;
+    textCanvas.height = contentHeight * ratio;
+    textCanvas.style.width = contentWidth + 'px';
+    textCanvas.style.height = contentHeight + 'px';
+    ctx.scale(ratio, ratio);
+
+    let currentY = 0;
+
+    // Loop through child nodes (spans and text)
+    textContent.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const fontSize = parseFloat(window.getComputedStyle(textContent).fontSize);
+        const lineHeight = parseFloat(window.getComputedStyle(textContent).lineHeight);
+        ctx.fillStyle = window.getComputedStyle(textContent).color;
+        ctx.font = `${fontSize}px ${window.getComputedStyle(textContent).fontFamily}`;
+        wrapText(ctx, node.textContent.trim(), 0, currentY, contentWidth, lineHeight);
+        currentY += lineHeight;
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        const spanStyles = window.getComputedStyle(node);
+        const fontSize = parseFloat(spanStyles.fontSize);
+        const lineHeight = parseFloat(spanStyles.lineHeight);
+        const fontFamily = spanStyles.fontFamily;
+        ctx.fillStyle = spanStyles.color;
+        ctx.font = `${fontSize}px ${fontFamily}`;
+        wrapText(ctx, node.textContent.trim(), 0, currentY, contentWidth, lineHeight);
+        currentY += lineHeight;
+      }
+    });
+  });
+}
+
+function animateCanvas(duration = 1000) {
+  const start = performance.now();
+
+  function step(timestamp) {
+    const progress = timestamp - start;
+    const opacity = Math.min(progress / duration, 1);
+    cloneTextToCanvas(opacity);
+
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  window.requestAnimationFrame(step);
+}
+
+window.onload = function() {
+  animateCanvas();
+};
+
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    window.requestAnimationFrame(cloneTextToCanvas);
+  }, 100);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Front End Engine V1</title>
+    <link rel="stylesheet" href="static/css/d.css">
+
+    <style>
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'yass';
+    background-color: #fff;
+    color: #000;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-size: calc(100vw / 1512 * 10);
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.scroll-content {
+    position: absolute;
+    width: 100vw;
+    height: fit-content;
+    box-sizing: border-box;
+}
+.section {
+    width: 100vw;
+    height: 111vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    margin: 0;
+    padding: 0; 
+    overflow: hidden;
+    position: relative;
+    font-smoothing: antialiased;
+}
+
+.sect{
+    height: 105vh; 
+    color: #fff;
+ 
+}
+
+
+#webgl-canvas{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: none;
+    image-rendering: auto; 
+}
+
+
+.nana3{
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 20rem;
+    mix-blend-mode: normal;
+}
+
+.nana1{
+    font-family: 'stawp';
+    font-size: 20rem;
+   opacity: 0.8;
+   overflow: hidden;
+   display: inline-block;
+   text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.nana1 p{
+
+    display: inline-block
+}
+
+.nana1 span{
+    transform: translateY(100%);
+    display: inline-block
+}
+
+.nana1 span{
+    font-size: 30rem;
+}
+
+.nana1 sup{
+    font-family: 'yass';
+    font-size: 3.5rem;
+}
+
+.nana{
+    opacity: 1;
+}
+
+
+.img{
+    height: 140vh;
+    width: 98vw;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
+
+.gim{
+    height: 56rem;
+    width: 56rem;
+    overflow: hidden;
+}
+
+.nana1{
+    mix-blend-mode: difference;
+    color: #fff;
+}
+
+.parallax {
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: #000;
+}
+
+
+.lefttext{
+
+    height: fit-content;
+    font-family: 'lulu';
+    top: 30rem;
+    font-size: 10px;
+    position: absolute;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.menu{
+    font-family: 'lulu';
+    position: absolute;
+    top: 30px;
+    right: 1vw;
+    font-size: 1.6rem;
+    opacity: 0.8;
+    color: #fff;
+    mix-blend-mode: difference;
+    z-index: 99999999999999;
+}
+
+.inside-sect{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.random-text{
+    width: 80rem;
+    font-size: 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.number1{
+    width: 55rem;
+    line-height: 4rem;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+
+.number2{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+.suh-dude{
+    height: 140vh;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container-all" id="container">
+        <canvas id="webgl-canvas"></canvas>
+
+        <div id="all" class="scroll-content">
+
+            <div class="section sect">
+            <div class="inside-sect">
+
+            </div>
+                <div class="nana nana1 "><p>
+                    <span>M</span><span>—</span><span>V</span><span>E</span>
+                </p></div>
+                <div class="menu"><p></p></div>
+                <div class="img parallax">
+                    <canvas id="img" class="img-canvas img-canvas-main"></canvas>
+                    <img src="static/media/1.webp" alt="" srcset="" style="display: none;">
+                </div>
+                
+            </div>
+
+
+            <div class="section">
+                <div class="random-text">
+                    <div class="number1">
+                        <p class=".containe__heading">
+
+                            <span class="heading__line">
+                                <span>EMERGING FROM THE NEED TO BRING</span>
+                            </span>
+                            <span class="heading__line">
+                                <span>IMMERSIVE 3D EXPERIENCES TO THE WEB,</span>
+                            </span>
+                            <span class="heading__line">
+                                <span>WEBGL (WEB GRAPHICS LIBRARY) SERVES AS A</span>
+                            </span>
+                            <span class="heading__line">
+                                <span>BRIDGE BETWEEN RAW COMPUTATIONAL</span>
+                            </span>
+                            <span class="heading__line">
+                                <span>POWER AND ARTISTIC CREATIVITY</span>
+                            </span>
+            
+                        </p>
+                    </div>
+
+
+                    
+                    <div class="number2">
+                        <p>AN EXPLORATION</p>
+                        <p>2024</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+<div class="section suh-dude">
+       <div class="img">
+    <div class="mini-parallax">
+        <canvas class="img-canvas "></canvas>
+        <img src="static/media/2.webp" alt="" srcset="">
+    </div>
+
+       </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="section">
+
+    <div class="number1">
+        <p>When we use web GL to do web stuff, it leverages the GPU for animations text and stuff. thIs allows you to do complex animations, and series of effects without the fear of blowing up your pc </p>
+    </div>
+</div>
+
+<div class="section">
+<div class="two-guys">
+    <div class="block block1">
+        <div class="mini-parallax">
+        <canvas class="img-canvas "></canvas>
+        <img src="static/media/3.png" alt="" srcset="">   
+    </div>
+    </div>
+    <div class="block block2">
+        <div class="mini-parallax">
+        <canvas class="img-canvas "></canvas>
+        <img src="static/media/4.png" alt="" srcset="">
+    </div>
+</div>
+ </div>
+</div>
+
+
+<div class="section first-big">
+    <div class="nana nana3">
+        
+        <div class="div"><p>
+            <span>T</span><span>H</span><span>E</span><span>—</span><span>W</span><span>A</span><span>V</span><span>E</span><span>S</span>
+            </p></div>
+            
+       <div class="feel-them">
+        <p>FEEL THEM</p>
+       </div>
+
+
+        
+    </div>
+</div>
+
+
+
+<div class="section suh-dude">
+    <div class="img">
+    <div class="mini-parallax">
+     <canvas class="img-canvas "></canvas>
+      <img src="static/media/5.webp" alt="" srcset="">
+    </div>
+</div>
+
+</div>
+
+<div class="section">
+
+    <div class="number1">
+        <p>So A bunch of smart people decided to use web gl as a means to run simple websites, in order to ensure their animations are consistently buttery smooth and it's really fun to develop things from scratch innit? No? Aight</p>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="two-guys">
+        <div class="block block1">
+        <div class="mini-parallax">
+            <canvas class="img-canvas "></canvas>
+            <img src="static/media/6.jpg" alt="" srcset="">   
+        </div>
+        </div>
+        <div class="block block2">
+        <div class="mini-parallax">
+            <canvas class="img-canvas "></canvas>
+            <img src="static/media/7.png" alt="" srcset="">
+        </div>
+    </div>
+     </div>
+    </div>
+
+<div class="section">
+    <div class="nana nana3">
+        
+        <div class="div2"><p><span>T</span><span>A</span><span>K</span><span>E</span><span>—</span><span>C</span><span>T</span><span>R</span><span>L</span></p></div>
+        
+    </div>
+</div>
+
+
+<div class="major">
+    <div class="small-img small-img1">
+        <div class="inner-small inner-small1">
+            <canvas class="img-canvas "></canvas>
+            <img src="static/media/7.png" alt="" srcset="">
+        </div>
+    </div>
+
+    <div class="small-img small-img2">
+        <div class="inner-small inner-small2"></div>
+    </div>
+
+
+    <div class="small-img small-img3">
+        <div class="inner-small inner-small3"></div>
+    </div>
+
+
+    <div class="small-img small-img4">
+        <div class="inner-small inner-small4"></div>
+    </div>
+
+
+    <div class="small-img small-img5">
+        <div class="inner-small inner-small5"></div>
+    </div>
+</div>
+
+<div class="final">
+    <div class="stay-flexed">
+        <div class="at-left">
+            <p>LUCIEN — COLLECTION N01</p>
+        </div>
+
+        <div class="at-right">
+          <a href="menu.html">MORE</a>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+    </div>
+    <script src="static/js/d.js"></script>
+
+
+    <script>
+    document.addEventListener('wheel', function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    document.addEventListener('touchmove', function(event) {
+        if (event.scale !== 1) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+</script>
+
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    
+    document.querySelectorAll('.containe__heading').forEach(container => {
+    
+      gsap.to(container.querySelectorAll('.heading__line span'), {
+        y: "0",
+        filter: "blur(0px)",
+        stagger: 0.1,
+            duration: 2,
+            ease: "expo.out",
+        scrollTrigger: {
+          trigger: container,
+          start: "top bottom", 
+          toggleActions: "play none none none", 
+        }
+      });
+    });
+    </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const major = document.querySelector('.major');
+    const smallImgs = Array.from(document.querySelectorAll('.small-img'));
+    const centerElement = document.querySelector('.small-img3');
+    const radius = 45; // 45rem radius for circle spacing
+
+    // Function to start the animation
+    function startAnimation() {
+        // Save the initial positions
+        const initialPositions = smallImgs.map(img => ({
+            top: img.style.top,
+            left: img.style.left
+        }));
+
+        // Center element
+        centerElement.style.top = `calc(50% - ${centerElement.offsetHeight / 2}px)`;
+        centerElement.style.left = `calc(50% - ${centerElement.offsetWidth / 2}px)`;
+        centerElement.style.transform = 'translate(0, 0)';
+        centerElement.style.zIndex = '2'; // Bring to front
+
+        // Arrange other elements in a circle
+        smallImgs.forEach((img, index) => {
+            if (img === centerElement) return;
+
+            const angle = (360 / (smallImgs.length - 1)) * index;
+            const rad = angle * (Math.PI / 180);
+            const x = Math.cos(rad) * radius;
+            const y = Math.sin(rad) * radius;
+
+            img.style.top = `calc(50% + ${y}px - ${img.offsetHeight / 2}px)`;
+            img.style.left = `calc(50% + ${x}px - ${img.offsetWidth / 2}px)`;
+            img.style.transform = 'translate(0, 0)';
+            img.style.zIndex = '1'; // Place behind the center element
+        });
+
+        // Reset positions after animation
+        setTimeout(() => {
+            smallImgs.forEach((img, index) => {
+                if (img === centerElement) return;
+
+                img.style.top = initialPositions[index].top;
+                img.style.left = initialPositions[index].left;
+            });
+        }, 2000); // Match the duration of the transition
+    }
+
+    // IntersectionObserver to trigger the animation when .major is in view
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            startAnimation();
+            observer.unobserve(major); // Stop observing after the animation starts
+        }
+    }, { threshold: 0.1 }); // Adjust the threshold as needed
+
+    observer.observe(major);
+});
+
+</script>
+
+</body>
+</html>

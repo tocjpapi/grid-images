@@ -1,0 +1,593 @@
+
+  
+  
+        /* Styles remain the same */
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+  
+  
+  
+  
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'yass';
+            background-color: var(--bg);
+            color: var(--text);
+  
+            font-size: calc(100vw / 1512 * 10);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+  
+        #webgl-canvas{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: none;
+            image-rendering: auto; 
+  
+        }
+  
+        #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-size: 3.1rem;
+        }
+  
+        .scroll-content {
+            position: absolute;
+            width: 100vw;
+            height: fit-content;
+            box-sizing: border-box;
+        }
+  
+        .contain-image {
+            height: 100%;
+            width: 100%;
+            animation: zoom 1s ease;
+        }
+  
+        .elder {
+            height: 109vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+  
+        .last {
+          height: 101vh;
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+          background: var(--bg);
+
+      }
+  
+  
+        .mini-img {
+            height: 50vh;
+            width: 50vw;
+            transition: height 1s ease;
+            overflow: hidden;
+        }
+  
+        .mini-img:hover {
+            height: 70vh;
+        }
+  
+        .cvs {
+            height: 100%;
+            width: 100%;
+  
+        }
+  
+        .cvs2{
+            height: 50vh;
+            width: 50vw;
+            transition: height 1s ease, width 1s ease;
+        }
+  
+        .cvs2:hover {
+            height: 70vh;
+  
+        }
+  
+        a{
+          color: var(--text);
+        }
+  
+
+  
+  
+  
+  
+    .number1{
+    width: 63rem;
+    line-height: 5.2rem;
+    font-size: 3.1rem;
+    position: relative;
+  }
+  
+  
+  .number1 p{
+    width: 100%;  
+  }
+  
+  
+  
+  
+  .text-canvas {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1; 
+  
+            
+        }
+  
+  
+  
+  
+
+  
+  
+  /* all-about-sticky */
+  
+  .l-m {
+  display: flex;
+  align-items: center;
+  }
+  
+  .l-m canvas{
+    transition: opacity 0.3s ease;
+  }
+  
+  .l-m {
+    position: relative;
+  }
+  
+
+  
+
+  
+  .l-m:hover .cross {
+  transform: translate(-50%, -34%) scale(1);
+  opacity: 1;
+  }
+  
+  .cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -34%) scale(0);
+  font-size: 5rem;
+  z-index: -1;
+  opacity: 0;
+  font-weight: 100;
+  transition: transform 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+  transform-origin: center;
+  font-family: 'stawp';
+  
+  }
+  
+  .elemsi{
+    position: relative;
+}
+
+  .first-sticky-element-boss{
+    height: 73rem;
+    width: 100vw;
+    position: relative;
+  }    
+  .first-sticky-element{
+    height: 100%;
+    width: 55rem;
+    position: absolute;
+    left: 15rem;
+  }
+  
+  .second-sticky-element-boss{
+    height: 50rem;
+    width: 100vw;
+    position: relative;
+    margin-top: -20rem;
+  }    
+  .second-sticky-element{
+    height: 100%;
+    width: 64rem;
+    position: absolute;
+    right: 4rem;
+  }
+  
+  
+  .third-sticky-element-boss{
+    height: 100rem;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }    
+  .third-sticky-element{
+    height: 73rem;
+    width: 55rem;
+  
+  
+  }
+  
+  
+  
+  #text-content {
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      position: absolute;
+      animation: cool 1s ease forwards;
+    }
+  
+    .text-canvas {
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+  
+  }
+  
+  
+  
+  
+    .tint{
+      opacity: 0.05;
+      background: #514e00;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      z-index: 999999999999;
+    }
+    
+
+    .l-m{
+        overflow: hidden;
+    }
+
+
+    .box{
+      overflow: hidden;
+    }
+
+
+    .contain-img{
+        position: absolute;
+        width: 100%;
+        height: 115%;
+        top: -15%;
+    }
+
+.next-sticky-boss{
+    height: fit-content;
+}
+
+
+.bad-screen{
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  background: #efefef;
+  z-index: 99999;
+  position: fixed;
+}
+
+
+.shandy{
+    height: 95rem;
+    width: 100vw;
+    position: relative;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hunnid{
+    height: calc(63rem + 60rem);
+}
+.sticky-test{
+    height: 63rem;
+}
+
+.hundred{
+    height: 100vh;
+    background: var(--bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hundredy{
+  height: 110rem;
+  background: var(--bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.great{
+  color: var(--bg);
+  line-height: 9.2rem;
+  font-size: 9.1rem;  
+  width: 96rem;
+
+}
+
+.whodid{
+  color: var(--bg);
+  position: absolute;
+  bottom: 12rem;
+  font-size: 2.1rem;
+}
+
+.great p{
+  width: 96rem;
+}
+.boxers{
+  height: 40rem;
+  width: 100vw;
+  background: var(--bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r-g{
+    position: absolute;
+    right: 24%;
+    bottom: 29%;
+}
+
+.small{
+    font-size: 2rem;
+}
+
+.sticky-test{
+    width: 100vw;
+    position: relative;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.extra-stuff-cont{
+  height: 65rem;
+  width: 100%;
+  position: relative;
+  background: var(--bg);
+  margin-top: -9rem;
+}
+
+.two-step{
+  position: absolute;
+  left: 25.6rem;
+}
+
+.boxings{
+  height: 35rem;
+  width: 100vw;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.big-picture{
+  height: calc(100vh - 6rem);
+  width: 42vw;
+  position: absolute;
+  left: 3rem;
+  bottom: 3rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.one-step{
+  height: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-more-pic-cont{
+  height: 100%;
+  width: 50rem;
+  position: absolute;
+  left: 47.9rem;
+  overflow: hidden;
+}
+
+.p-c{
+  background: var(--text);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+.content-boss2{
+  width: 20rem;
+  font-size: 1.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  position: absolute;
+  top: 40px;
+  left: 72.4%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  z-index: -9999999;
+}
+
+.content-boss2 p{
+  width: 100%;
+}
+
+.jinx{
+  height: 65rem;
+  width: 100vw;
+  position: relative;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+}
+
+.c-r{
+  position: absolute;
+  right: 40px;
+  width: 35rem;
+  height: 100%;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.c-r p{
+  width: 35rem; 
+
+}
+
+.c-t{
+  opacity: 0.5;
+  position: absolute;
+  font-size: 1.8rem;
+  width:  13rem;
+  top: 10rem;
+  right: 46rem;
+}
+
+
+.c-t p{
+  width:  13rem;
+}
+
+.credo{
+  position: absolute;
+  font-size: 1.2rem;
+  top: 10.6rem;
+  left: 78rem;
+  opacity: 0.5;
+}
+
+.right-side{
+  height: 100%;
+  width: 40%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+
+.right-side-inner{
+  height: 100%;
+  width: 100%;
+  line-height: 5.2rem;
+  font-size: 3.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+
+.vibe{
+  width: 40rem;
+}
+
+.vibe p{
+  width: 40rem;
+}
+
+.point{
+  line-height: 3.9rem;
+  font-size: 2.5rem;
+}
+
+.back-to-top{
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  opacity: 0.5;
+  width: 10rem;
+  transition: opacity 0.5s;
+} 
+
+.back-to-top:hover{
+  opacity: 1;
+} 
+
+.back-to-top p{
+  width: 100%;
+}
+
+.general{
+  height: 50%;
+  opacity: 0.5;
+  margin-left: 4rem;
+}
+
+.item-no{
+  position: absolute;
+  right: 4rem;
+  bottom: 15rem;
+}
+
+@media (max-width: 900px) {
+  .bad-screen{
+    display: flex;
+  }
+}

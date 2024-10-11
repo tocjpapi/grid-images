@@ -1,0 +1,63 @@
+    <script>
+const bigPicture = document.querySelector('.big-picture');
+const gallerieLink = document.querySelector('.gallerie-link');
+
+const originalPosition = {
+    top: gallerieLink.offsetTop,
+    left: gallerieLink.offsetLeft
+};
+
+let targetPos = { x: originalPosition.left, y: originalPosition.top };
+let currentPos = { x: originalPosition.left, y: originalPosition.top };
+let animationFrame;
+
+function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function animate() {
+    const speed = 0.1; // Adjust this for smoother or quicker transitions
+
+    currentPos.x += (targetPos.x - currentPos.x) * speed;
+    currentPos.y += (targetPos.y - currentPos.y) * speed;
+
+    gallerieLink.style.left = `${currentPos.x}px`;
+    gallerieLink.style.top = `${currentPos.y}px`;
+
+    if (Math.abs(targetPos.x - currentPos.x) > 0.1 || Math.abs(targetPos.y - currentPos.y) > 0.1) {
+        animationFrame = requestAnimationFrame(animate);
+    }
+}
+
+bigPicture.addEventListener('mousemove', (e) => {
+    const rect = bigPicture.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    targetPos = { x, y };
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(animate);
+});
+
+bigPicture.addEventListener('mouseleave', () => {
+    targetPos = { x: originalPosition.left, y: originalPosition.top };
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(animate);
+});
+
+    </script>
+
+
+html
+
+
+        <div class="big-picture">
+        <div class="contain-img" data-speed = "-0.23">
+            <canvas class="cvs" data-img="static/media/18.webp"></canvas>
+        </div>
+
+        <div class="gallerie-link" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas hover"></canvas>
+        <p id="text-content">See Gallery</p>
+        </div>
+    </div>

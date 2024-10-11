@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grid® — A Tribute to GUCCI </title>
+    <link rel="stylesheet" href="d.css">
+
+    <style>
+@font-face {
+  font-family: 'yass';
+  src: url(/static/font/nm5.woff2);
+}
+
+@font-face {
+  font-family: 'form';
+  src: url(/static/font/Form.woff2);
+}
+
+:root {
+  --bg: #ebebeb; 
+  --text:  #111;
+}
+
+
+
+
+
+        .full-page{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            font-size: 1.9rem;
+        }
+
+
+
+
+        .hover-boss{
+            position: absolute;
+            top: 4rem;
+            right: 4rem;
+            cursor: pointer;
+            z-index: 99999;
+
+        }
+
+
+        
+
+        .hover{
+            mix-blend-mode: difference;        
+        }
+
+        .number{
+
+            text-wrap: nowrap;  
+            position: absolute;
+            bottom: 4rem;
+            right: 4rem;  
+        }
+
+     .shadow{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #0000003b;
+        z-index: 999;
+        pointer-events: none;
+     }
+
+
+     .shadow1,.shadow2{
+        opacity: 0;
+
+     }
+
+
+
+
+        .arrow-down{
+text-wrap: nowrap;  
+position: absolute;
+bottom: 4rem;
+left: 4rem;  
+}
+
+.arrow-down p{
+    width: 280px;
+}
+
+
+        
+
+        .hover p{
+        width: 9.6rem;
+        text-wrap: nowrap;
+        font-size: 1.9rem;
+        }
+
+
+
+        .notes{
+            font-size: 1.9rem;
+            text-wrap: nowrap;  
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            z-index: 99999;
+        }
+
+        
+        .notes p{
+            width: 80px;
+        
+        }
+
+        .content-boss{
+            width: 20rem;
+            font-size: 1.9rem;
+            display: flex;
+            justify-content: space-between;  
+            position: absolute;
+            top: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+
+
+        .hover-boss{
+            width: fit-content;
+            
+        }
+
+
+
+
+
+.line, .line2 {
+    width: 100%;
+    height: 1px;
+    background: #000;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 1rem;
+    transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.line{
+    transform: scaleX(1);
+    transform-origin: right;
+    animation: 1.5s opacity 0.5s forwards ease;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes opacity{
+  to{
+    opacity: 0.6;
+  }
+}
+
+.line2 {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.hover-boss:hover .line {
+    transform: scaleX(0);
+    transition-delay: 0s;
+}
+
+.hover-boss:hover .line2 {
+    transform: scaleX(1);
+    transition-delay: 0.15s;
+}
+
+.nav-boss{
+            z-index: 999;
+        }
+
+        .nav{
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+
+
+
+.hover-boss .line {
+    transition-delay: 0.15s;
+}
+
+.hover-boss .line2 {
+    transition-delay: 0s;
+}
+
+
+        .grand-text{
+      font-family: 'form';
+      font-size: 50rem;
+      line-height: 45rem;
+      z-index: 9;
+    pointer-events: none;
+        }
+
+        .big-selected-text{
+      font-family: 'form';
+      font-size: 50rem;
+      line-height: 45rem;
+      z-index: 9;
+    pointer-events: none;
+        }
+
+        .lets-give-some-space{
+            height: 20rem;
+            background: var(--bg);
+            position: relative;
+            
+        }
+
+        .maybe-its-sticky{
+         height: 100vh;
+         width: 100vw;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+        }
+
+
+        .premiere{
+            height: 73rem;
+            width: 100vw;
+            position: relative;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .continue{
+            height: 77rem;
+            width: 100vw;
+            position: relative;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cont{
+            height: 77rem;
+            width: 100vw;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .next{
+            height: fit-content;
+            width: 100vw;
+            position: relative;
+            background: var(--bg);
+
+        }
+
+        .block-at-right-page1{
+            height: 100%;
+            width: 98.7rem;
+            background: #292925;
+            position: absolute;
+            right: 4rem;
+            overflow: hidden;
+        }
+
+
+
+
+
+        .intro-text{
+            width: 78rem;
+  line-height: 9.2rem;
+  font-size: 9.1rem;  
+  position: relative;
+        }
+
+        .intro-wrapper{
+            display: flex;
+            gap: 20rem;
+
+        }
+
+
+
+
+        .all-in-all{
+           display: flex;
+           flex-direction: column;
+           position: absolute;
+
+           gap: 8rem;
+        }
+
+        .intro-text p{
+            width: 100%; 
+
+        }
+
+
+
+        
+
+        .go-back{
+            z-index: -1;
+        }
+
+
+
+
+
+    .rect{
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+
+        pointer-events: none;
+
+    }
+
+
+    .lil-space{
+        height: 20vh;
+    }
+
+    .contain-image{
+        position: absolute;
+        z-index: -5;
+    }
+
+    .two-sentence-wrap{
+        display: flex;
+        font-size: 2.1rem;
+        gap: 5rem;
+    }
+
+    .a-v{
+        height: 20rem;
+
+    }
+
+
+    .content-boss .nav:hover{
+         opacity: 1;
+    }
+
+
+    .content-boss:hover .active{
+        opacity: 0.5;
+    }
+
+
+    .active:hover{
+        opacity: 1;
+    }
+
+    .inactive{
+        opacity: 0.5;
+    }
+
+    .mini{
+        width: 25rem;
+    }
+
+    .smol {
+display: none;
+transition: all 0.3s;
+}
+
+.smol.mini-reveal {
+    display: block;
+
+}
+
+.big {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.big.big-reveal {
+   opacity: 1;
+
+}
+
+
+
+
+    .mini p{
+        width: 25rem; 
+    }
+
+
+    .box{
+        height: 12.7rem;
+        width: 8.7rem;
+        background: var(--bg);
+        position: absolute;
+        transition: filter 0.3s ease;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    .box:hover{
+        filter: invert();
+    }
+
+    .box canvas{
+        opacity: 0.95;
+    }
+
+    .full-page .grand-text:hover .box{
+       opacity: 0;
+    }
+
+
+    .box1{
+        top: 20rem;
+        left: 34rem;
+    }
+
+    .box2{
+        bottom: 5rem;
+        right: 15rem;
+    }
+
+
+    .box3{
+        bottom: 26rem;
+        left: 14rem;
+        
+    }
+
+    .box4{
+        bottom: 26rem;
+        right: 37rem;
+    }
+
+    .box5{
+        bottom: 5rem;
+        right: 15rem;
+    }
+
+
+
+
+
+    @media (max-width: 600px) {
+        .lets-give-some-space{
+            display: none;
+        }
+    }
+
+
+    @media (max-width: 900px) {
+        .lets-give-some-space{
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .lets-give-some-space{
+            display: none;
+        }
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="container-all" id="container">
+        <canvas id="webgl-canvas"></canvas>
+        <div id="all" class="scroll-content">
+
+
+
+            <div class="nav-boss sticky">
+
+                <div class="notes smol smol-5" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" class="invert">My Grid ® </p>
+                </div>
+    
+    
+                
+    
+            <div class="content-boss">
+                <div class="work nav active smol smol-2" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" class="invert">Index </p>
+                </div>
+    
+                <div class="about nav inactive smol smol-3" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" class="invert">Gallery </p>
+                </div>
+    
+                <div class="contact nav inactive smol smol-4" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" class="invert ">Contact </p>
+                </div>
+                
+    
+            </div>
+    
+    
+    
+    
+            <a href="engine.html">
+                <div class="hover-boss smol smol-5">
+                <div class="hover" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" class="invert">London, UK </p>
+                </div>
+    
+    
+                <div class="line"></div>
+                <div class="line line2"></div>
+            </div>
+        </a>
+    
+    </div>
+
+    
+    <div class="nav-boss2 sticky">
+
+
+
+
+        
+
+    
+            
+    
+        </div>
+
+
+            <div class="sticky-king">
+            <div class="full-page go-back sticky" >
+           
+
+
+
+
+                <div class="box box1" data-speed="-0.1">
+                    <canvas class="cvs" data-img="static/media/5.jpg"></canvas>
+                </div>
+                <div class="box box2" data-speed="-0.2">
+                    <canvas class="cvs" data-img="static/media/4.jpg"></canvas>
+                </div>
+                <div class="box box3" data-speed="-0.23">
+                    <canvas class="cvs" data-img="static/media/1.jpg"></canvas>
+                </div>
+                <div class="box box4" data-speed="-0.35">
+                    <canvas class="cvs" data-img="static/media/3.jpg"></canvas>
+                </div>
+
+
+
+
+                
+
+            <div class="grand-text big" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas hover"></canvas>
+            <p id="text-content">GRID</p>
+            </div>
+
+
+
+
+            <div class="number smol smol-1" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas hover"></canvas>
+            <p id="text-content" class="invert">24</p>
+            </div>
+
+
+            <div class="overall-wrapper">
+
+            <div class="arrow-down smol smol-6" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas hover"></canvas>
+                <p id="text-content" ></p>
+            </div>
+
+        </div>
+
+        <div class="shadow shadow1"></div>
+
+            </div>
+
+
+
+
+            <div class="lil-space"></div>
+
+    <div class="premiere" >
+
+
+<div class="all-in-all">
+
+      <div class="intro-wrapper">
+
+                <div class="intro-arrow-right" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas"></canvas>
+                    <p id="text-content" class="mini-reveal">⇢</p>
+                </div>
+
+                 <div class="intro-text medium-reveal" id="text-wrapper">
+                    <canvas id="text-canvas" class="text-canvas"></canvas>
+                    <p id="text-content" class="">Designs that aim to captivate the mind</p>
+                </div>
+      </div>
+
+
+
+
+      <div class="two-sentence-wrap">
+
+        <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">
+                Crafting immersive experiences that not only captivate the imagination but also push the boundaries of creativity and innovation</p>
+        </div>
+
+         <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="">
+                Innovative designs meticulously crafted to engage the senses, evoke emotion, and leave a lasting impression in the digital world</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+    
+
+
+    <div class="shandy">
+        <div class="block-at-right-page1">
+         <div class="contain-img" data-speed = "-0.23">
+            <canvas class="cvs" data-img="static/media/2.jpg"></canvas>
+         </div>
+        </div>
+    </div>
+
+    <div class="lets-give-some-space"></div>
+</div>
+
+<div class="sticky-king">
+
+    <div class="next ">
+
+
+    <div class="maybe-its-sticky sticky">
+        <div class="r-g " id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas hover"></canvas>
+        <p id="text-content">®</p>
+        </div>
+       <div class="big-selected-text big-reveal" id="text-wrapper">
+        <canvas id="text-canvas" class="text-canvas hover"></canvas>
+    <p id="text-content" class="split ">TRI</p>
+    </div>
+</div>
+<div class="elemsi">
+
+    <div class="shadow shadow2"></div>
+        <div class="first-sticky-element-boss element-boss">
+          <div class="first-sticky-element l-m">
+        <div class="contain-img" data-speed = "-0.23">
+            <canvas class="cvs" data-img="static/media/8.jpg"></canvas>
+        </div>
+        </div>
+
+
+    </div>
+
+    <div class="second-sticky-element-boss element-boss">
+        <div class="second-sticky-element l-m">
+        <div class="contain-img" data-speed = "-0.23">
+          <canvas class="cvs" data-img="static/media/15.webp"></canvas>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="third-sticky-element-boss element-boss">
+        <div class="third-sticky-element l-m">
+
+  
+        <div class="contain-img" data-speed = "-0.23">
+          <canvas class="cvs" data-img="static/media/13.webp"></canvas>
+        </div>
+      </div>
+    </div>
+
+   
+
+</div>
+
+    <div class="sticky-test ">
+        <div class="all-in-all">
+
+            <div class="intro-wrapper">
+      
+                      <div class="intro-arrow-right" id="text-wrapper">
+                          <canvas id="text-canvas" class="text-canvas"></canvas>
+                          <p id="text-content" class="mini-reveal small">01.</p>
+                      </div>
+      
+                       <div class="intro-text medium-reveal" id="text-wrapper">
+                          <canvas id="text-canvas" class="text-canvas"></canvas>
+                          <p id="text-content" class="">Gucci clearly knows how to make her brand look good</p>
+                      </div>
+
+                      
+
+
+            </div>
+      
+      
+      
+
+      
+          </div>
+    </div>
+
+
+
+    <div class="extra-stuff-cont">
+        <div class="extra-more-pic-cont">
+           <div class="p-c">
+            <div class="contain-img" data-speed = "-0.23">
+                <canvas class="cvs" data-img="static/media/16.webp"></canvas>
+              </div>
+           </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxers" >
+    <div class="two-sentence-wrap two-step">
+
+        <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">
+            Crafting immersive experiences inspired by Gucci's design system, that not only captivate the imagination but also push the boundaries of creativity and innovation</p>
+            </div>
+            <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="">
+            Innovative designs meticulously crafted from Gucci's design system principles, to engage the senses, evoke emotion, and leave a lasting impression in the digital world</p>
+            </div>
+
+            <div class="mini mini-reveal" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="">
+                We can learn from their unique approact to photography, imagery and design in general to make our designs have an ‘emotion’ to it.</p>
+                </div>
+
+
+      </div>
+</div>
+
+
+<div class="e-m">
+
+</div>
+
+
+<div class="hundredy">
+    <div class="great medium-reveal" id="text-wrapper">
+        <canvas id="text-canvas" class="text-canvas"></canvas>
+        <p id="text-content" class="mini-reveal">
+        “My idea for Gucci was crazy, but that's the only idea I had. I was sure I'd be fired after the first show”</p>
+        </div>
+
+        <div class="whodid mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">— Alessandro Michele</p>
+            </div>
+
+            <div class="contain-img" data-speed = "-0.23">
+                <canvas class="cvs" data-img="static/media/14.webp"></canvas>
+              </div>
+
+
+</div>
+
+
+<div class="jinx">
+    <div class="c-r mini-reveal" id="text-wrapper">
+        <canvas id="text-canvas" class="text-canvas"></canvas>
+        <p id="text-content" >
+            “With a brand like Gucci, you have to give something that belongs to beautiful Italian culture in terms of craftsmanship and materials," reflects his deep commitment to blending Gucci's rich heritage with modern creativity. Michele emphasizes that maintaining a connection to traditional Italian craftsmanship is essential to the brand's identity, while also pushing the boundaries of contemporary fashion. His approach successfully marries historical elegance with innovative design, helping Gucci remain relevant and desirable in today's fashion world”.​</p>
+        </div>
+
+        <div class="c-t mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" style="text-transform: uppercase;">FROM: AM​</p>
+            </div>
+</div>
+
+
+<div class="boxings" >
+    <div class="two-sentence-wrap one-step">
+
+        <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="">
+            This is a web development project done as a tribute to Gucci's design and photography. Made by Lucien ®.</p>
+            </div>
+
+        <div class="mini mini-reveal" id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">
+                 <br><span class="opt">All Images used are from Gucci and I dont claim any of them.</span> 
+                </p>
+            </div>
+
+            
+
+            <div class="credo mini-reveal" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal">
+                     <br><span class="opt">(CREDITS)</span> 
+                    </p>
+                </div>
+
+
+
+
+      </div>
+</div>
+
+
+<div class="last">
+    <div class="big-picture">
+        <div class="contain-img" data-speed = "-0.23">
+            <canvas class="cvs" data-img="static/media/18.webp"></canvas>
+        </div>
+
+    </div>
+    <div class="right-side">
+     
+
+        <div class="right-side-inner">
+            <div class="vibe medium-reveal" id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal">
+                    Made by Lucien in September 2024 for the Love of Development
+                </p>
+            </div>
+
+            <div class="spacer"></div>
+<div class="general" >
+
+
+            <div class="point point-2 medium-reveal"id="text-wrapper">
+                <canvas id="text-canvas" class="text-canvas"></canvas>
+                <p id="text-content" class="mini-reveal"><a href="index.html"><span>Ephemeral</span></a> <br><span class="opt">Opus </span> <br><span>Reverence </span><br><span>Evoke </span></p>
+            </div>
+   
+
+    </div>
+
+
+
+        </div>
+        <div class="back-to-top medium-reveal"id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">LET'S TALK ↗</p>
+        </div>
+
+
+        <div class="item-no medium-reveal"id="text-wrapper">
+            <canvas id="text-canvas" class="text-canvas"></canvas>
+            <p id="text-content" class="mini-reveal">24</p>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+
+    <div class="tint"></div>
+    <div class="rect"></div>
+
+
+    <div class="bad-screen">
+        <p>Reload the Page Please.</p>
+    </div>
+
+
+
+<script>
+// Configuration object for refined smoothing and timing adjustments
+const animationConfig = {
+    easingFunction: t => 1 - Math.pow(1 - t, 5),
+    revealHeight: 100,
+    staggerDelay: 0.07,
+    animationDuration: 1800
+};
+
+const miniRevealConfig = {
+    revealHeight: 28, // Smaller reveal height for mini-reveal
+    delay: 0.1, // Custom stagger delay for mini-reveal
+    animationDuration: 1800, // Shorter animation duration for mini-reveal
+    easingFunction: t => 1 - Math.pow(1 - t, 5),
+};
+
+const mediumRevealConfig = {
+    revealHeight: 100, // Medium reveal height, between mini and big reveal
+    delay: 0.1, // Custom stagger delay for mini-reveal
+    animationDuration: 1800, // Animation duration for medium-reveal
+    easingFunction: t => 1 - Math.pow(1 - t, 5),
+};
+
+const bigRevealConfig = {
+    revealHeight: 600, // Bigger reveal height for the big reveal
+    delay: 0.1, // Faster delay for letters
+    animationDuration: 1800, // Longer animation duration for the big reveal
+    easingFunction: t => 1 - Math.pow(1 - t, 5),
+};
+
+// Function to apply advanced anti-aliasing
+function applyAdvancedAntiAliasing(ctx, text, x, y, color) {
+    const layers = [
+        { offsetX: 0, offsetY: 0, alpha: 1 },
+        { offsetX: -0.7, offsetY: 0, alpha: 0.05 },
+        { offsetX: 0, offsetY: -0.7, alpha: 0.05 },
+        { offsetX: 0.7, offsetY: 0.7, alpha: 0.05 }
+    ];
+
+    layers.forEach(layer => {
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.globalAlpha = layer.alpha;
+        ctx.fillText(text, x + layer.offsetX, y + layer.offsetY);
+        ctx.restore();
+    });
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight, textAlign, progress, delay, animate, color, isBigReveal, isMiniReveal, isMediumReveal) {
+    const config = isBigReveal ? bigRevealConfig : 
+                   isMediumReveal ? mediumRevealConfig :
+                   isMiniReveal ? miniRevealConfig : 
+                   animationConfig;
+
+    const words = text.split(' ');
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = ctx.measureText(currentLine + ' ' + word).width;
+        if (width < maxWidth) {
+            currentLine += ' ' + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+
+    lines.forEach((line, lineIndex) => {
+        const lineWidth = ctx.measureText(line).width;
+        const lineX = textAlign === 'center' ? x - lineWidth / 2
+                    : textAlign === 'right' ? x - lineWidth
+                    : x;
+        const lineY = y + lineIndex * lineHeight;
+        const startY = lineY + config.revealHeight;
+
+        if (isBigReveal) {
+            // Split text animation for big reveal
+            const letters = line.split('');
+            letters.forEach((letter, letterIndex) => {
+                const letterWidth = ctx.measureText(letter).width;
+                const letterX = lineX + ctx.measureText(letters.slice(0, letterIndex).join('')).width;
+                const letterProgress = Math.min(1, Math.max(0, (progress - (lineIndex * letters.length + letterIndex) * config.delay) / (config.animationDuration / 1000)));
+                const easedProgress = config.easingFunction(letterProgress);
+                const currentY = animate ? startY - config.revealHeight * easedProgress : lineY;
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.rect(letterX, lineY, letterWidth, lineHeight);
+                ctx.clip();
+                applyAdvancedAntiAliasing(ctx, letter, letterX, currentY, color);
+                ctx.restore();
+            });
+        } else {
+            // Normal text reveal for mini-reveal, medium-reveal, and other cases
+            let currentY = lineY;
+            if (animate) {
+                const lineProgress = Math.min(1, Math.max(0, (progress - lineIndex * config.delay) / (config.animationDuration / 1000)));
+                const easedProgress = config.easingFunction(lineProgress);
+                currentY = startY - config.revealHeight * easedProgress;
+            }
+
+            ctx.textBaseline = 'top';
+            ctx.save();
+            ctx.beginPath();
+            ctx.rect(0, lineY, maxWidth, lineHeight);
+            ctx.clip();
+            applyAdvancedAntiAliasing(ctx, line, lineX, currentY, color);
+            ctx.restore();
+        }
+    });
+}
+
+function renderText(wrapper, animate = false) {
+    let textCanvas = wrapper.querySelector('.text-canvas');
+    const textContent = wrapper.querySelector('#text-content');
+    const ctx = textCanvas ? textCanvas.getContext('2d', { alpha: true }) : null;
+
+    if (!textCanvas) {
+        textCanvas = document.createElement('canvas');
+        textCanvas.className = 'text-canvas';
+        wrapper.insertBefore(textCanvas, textContent);
+    }
+
+    const ratio = Math.max(window.devicePixelRatio || 1, 2);
+    const contentWidth = textContent.offsetWidth;
+    const contentHeight = textContent.offsetHeight;
+    textCanvas.width = Math.floor(contentWidth * ratio);
+    textCanvas.height = Math.floor(contentHeight * ratio);
+    textCanvas.style.width = contentWidth + 'px';
+    textCanvas.style.height = contentHeight + 'px';
+
+    const offscreenCanvas = document.createElement('canvas');
+    const offscreenCtx = offscreenCanvas.getContext('2d', { alpha: true });
+    offscreenCanvas.width = textCanvas.width;
+    offscreenCanvas.height = textCanvas.height;
+    offscreenCtx.scale(ratio, ratio);
+
+    offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+    offscreenCtx.imageSmoothingEnabled = true;
+    offscreenCtx.imageSmoothingQuality = 'high';
+
+    const computedStyles = window.getComputedStyle(textContent);
+    offscreenCtx.font = `${computedStyles.fontStyle} ${computedStyles.fontWeight} ${computedStyles.fontSize} ${computedStyles.fontFamily}`;
+    const color = computedStyles.color;
+    offscreenCtx.textBaseline = 'top';
+    offscreenCtx.textAlign = computedStyles.textAlign;
+
+    let text = textContent.textContent;
+    switch (computedStyles.textTransform) {
+        case 'uppercase': text = text.toUpperCase(); break;
+        case 'lowercase': text = text.toLowerCase(); break;
+        case 'capitalize': text = text.replace(/\b\w/g, char => char.toUpperCase()); break;
+    }
+
+    const x = computedStyles.textAlign === 'center' ? contentWidth / 2
+                : computedStyles.textAlign === 'right' ? contentWidth
+                : 0;
+    const y = 0;
+    const maxWidth = contentWidth;
+    const lineHeight = parseFloat(computedStyles.lineHeight) || parseFloat(computedStyles.fontSize) * 1.2;
+    const isBigReveal = wrapper.classList.contains('big-reveal');
+    const isMiniReveal = wrapper.classList.contains('mini-reveal');
+    const isMediumReveal = wrapper.classList.contains('medium-reveal');
+
+    function updateCanvas() {
+        offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+        wrapText(offscreenCtx, text, x, y, maxWidth, lineHeight, computedStyles.textAlign, 1, animationConfig.staggerDelay, false, color, isBigReveal, isMiniReveal, isMediumReveal);
+        ctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+        ctx.globalCompositeOperation = 'difference';
+        ctx.drawImage(offscreenCanvas, 0, 0);
+    }
+
+    if (!animate) {
+        updateCanvas();
+    } else {
+        let progress = 0;
+        let lastTimestamp = performance.now();
+        const config = isBigReveal ? bigRevealConfig : 
+                       isMediumReveal ? mediumRevealConfig :
+                       isMiniReveal ? miniRevealConfig : 
+                       animationConfig;
+        const finalFrame = config.animationDuration / 1000 + config.delay * text.split(' ').length;
+
+        function updateAnimation(now) {
+            const deltaTime = (now - lastTimestamp) / 1000;
+            lastTimestamp = now;
+            progress += deltaTime;
+
+            if (progress <= finalFrame) {
+                offscreenCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+                wrapText(offscreenCtx, text, x, y, maxWidth, lineHeight, computedStyles.textAlign, progress, config.delay, true, color, isBigReveal, isMiniReveal, isMediumReveal);
+                ctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+                ctx.globalCompositeOperation = 'difference';
+                ctx.drawImage(offscreenCanvas, 0, 0);
+                requestAnimationFrame(updateAnimation);
+            }
+        }
+
+        requestAnimationFrame(updateAnimation);
+    }
+}
+
+// Intersection Observer for triggering animation when in view
+function handleIntersection(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const wrapper = entry.target;
+            if ((wrapper.classList.contains('mini-reveal') || 
+                 wrapper.classList.contains('medium-reveal') || 
+                 wrapper.classList.contains('big-reveal')) && 
+                !wrapper.classList.contains('animated')) {
+                renderText(wrapper, true); // Animate reveal elements
+                wrapper.classList.add('animated'); // Mark as animated
+            } else {
+                renderText(wrapper, false); // Render other elements without animation
+            }
+        }
+    });
+}
+
+const observer = new IntersectionObserver(handleIntersection, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+});
+
+// Observe all #text-wrapper elements
+document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+    observer.observe(wrapper);
+});
+
+// Throttled resize handler
+let resizeTimeout;
+function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+            if (wrapper.classList.contains('animated')) {
+                renderText(wrapper, false);
+            } else {
+                observer.unobserve(wrapper);
+                observer.observe(wrapper);
+            }
+        });
+    }, 100);
+}
+
+window.addEventListener('resize', handleResize);
+
+window.addEventListener('load', () => {
+    document.querySelectorAll('#text-wrapper').forEach(wrapper => {
+        if (wrapper.getBoundingClientRect().bottom < window.innerHeight) {
+            renderText(wrapper, (wrapper.classList.contains('mini-reveal') || 
+                                 wrapper.classList.contains('medium-reveal') || 
+                                 wrapper.classList.contains('big-reveal')) && 
+                                !wrapper.classList.contains('animated'));
+        }
+    });
+});
+
+</script>
+
+
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const shadow = document.querySelector('.shadow1');
+            const premiere = document.querySelector('.premiere');
+        
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const ratio = entry.intersectionRatio;
+                        shadow.style.opacity = ratio;
+                    } else {
+                        shadow.style.opacity = 0;
+                    }
+                });
+            }, { threshold: Array.from({ length: 101 }, (_, i) => i / 100) });
+        
+            observer.observe(premiere);
+        });
+</script>
+        
+        
+<script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const shadow = document.querySelector('.shadow2');
+                const premiere = document.querySelector('.sticky-test');
+            
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const ratio = entry.intersectionRatio;
+                            shadow.style.opacity = ratio;
+                        } else {
+                            shadow.style.opacity = 0;
+                        }
+                    });
+                }, { threshold: Array.from({ length: 101 }, (_, i) => i / 100) });
+            
+                observer.observe(premiere);
+            });
+</script>
+
+        
+        
+
+<script>
+    const dpr = Math.max(window.devicePixelRatio || 1, 2);
+
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+function resizeCanvas(cvs3d, ctx3d, img, tex) {
+    const newWidth = cvs3d.clientWidth * dpr;
+    const newHeight = cvs3d.clientHeight * dpr;
+
+    if (cvs3d.width !== newWidth || cvs3d.height !== newHeight) {
+        cvs3d.width = newWidth;
+        cvs3d.height = newHeight;
+        ctx3d.viewport(0, 0, cvs3d.width, cvs3d.height);
+        drawImage(ctx3d, img, cvs3d.width, cvs3d.height, tex);
+    }
+}
+
+function drawImage(ctx3d, img, canvasWidth, canvasHeight, tex) {
+    if (!img.complete) return;
+
+    const imgAspectRatio = img.width / img.height;
+    const canvasAspectRatio = canvasWidth / canvasHeight;
+
+    let scaleX, scaleY, offsetX, offsetY;
+
+    if (canvasAspectRatio > imgAspectRatio) {
+        scaleX = 1;
+        scaleY = imgAspectRatio / canvasAspectRatio;
+        offsetX = 0;
+        offsetY = (1 - scaleY) / 2;
+    } else {
+        scaleX = canvasAspectRatio / imgAspectRatio;
+        scaleY = 1;
+        offsetX = (1 - scaleX) / 2;
+        offsetY = 0;
+    }
+
+    const texCoords = new Float32Array([
+        offsetX, offsetY,
+        offsetX, offsetY + scaleY,
+        offsetX + scaleX, offsetY + scaleY,
+        offsetX + scaleX, offsetY
+    ]);
+
+    ctx3d.bindBuffer(ctx3d.ARRAY_BUFFER, ctx3d.createBuffer());
+    ctx3d.bufferData(ctx3d.ARRAY_BUFFER, new Float32Array([
+        -1, 1,  -1, -1,  1, -1,  1, 1
+    ]), ctx3d.STATIC_DRAW);
+    ctx3d.vertexAttribPointer(ctx3d.getAttribLocation(ctx3d.program, "aVertex"), 2, ctx3d.FLOAT, false, 0, 0);
+    ctx3d.enableVertexAttribArray(ctx3d.getAttribLocation(ctx3d.program, "aVertex"));
+
+    ctx3d.bindBuffer(ctx3d.ARRAY_BUFFER, ctx3d.createBuffer());
+    ctx3d.bufferData(ctx3d.ARRAY_BUFFER, texCoords, ctx3d.STATIC_DRAW);
+    ctx3d.vertexAttribPointer(ctx3d.getAttribLocation(ctx3d.program, "aUV"), 2, ctx3d.FLOAT, false, 0, 0);
+    ctx3d.enableVertexAttribArray(ctx3d.getAttribLocation(ctx3d.program, "aUV"));
+
+    ctx3d.clear(ctx3d.COLOR_BUFFER_BIT);
+    ctx3d.bindTexture(ctx3d.TEXTURE_2D, tex);
+    ctx3d.drawArrays(ctx3d.TRIANGLE_FAN, 0, 4);
+}
+
+function createShader(ctx3d, type, source) {
+    const shader = ctx3d.createShader(type);
+    ctx3d.shaderSource(shader, source);
+    ctx3d.compileShader(shader);
+    return shader;
+}
+
+function initializeCanvas(cvs3d) {
+    const ctx3d = cvs3d.getContext('webgl', { preserveDrawingBuffer: true });
+    const img = new Image();
+    img.src = cvs3d.getAttribute('data-img');
+
+    const vertexShaderSrc = `
+        attribute vec2 aVertex;
+        attribute vec2 aUV;
+        varying vec2 vTex;
+        void main(void) {
+            gl_Position = vec4(aVertex, 0.0, 1.0);
+            vTex = aUV;
+        }
+    `;
+    const fragmentShaderSrc = `
+        precision highp float;
+        varying vec2 vTex;
+        uniform sampler2D sampler0;
+        void main(void) {
+            vec4 color = texture2D(sampler0, vTex);
+            float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+            gl_FragColor = vec4(vec3(gray), color.a);
+        }
+    `;
+
+    const vertShader = createShader(ctx3d, ctx3d.VERTEX_SHADER, vertexShaderSrc);
+    const fragShader = createShader(ctx3d, ctx3d.FRAGMENT_SHADER, fragmentShaderSrc);
+
+    const program = ctx3d.createProgram();
+    ctx3d.attachShader(program, vertShader);
+    ctx3d.attachShader(program, fragShader);
+    ctx3d.linkProgram(program);
+    ctx3d.useProgram(program);
+    ctx3d.program = program;
+
+    const tex = ctx3d.createTexture();
+    ctx3d.bindTexture(ctx3d.TEXTURE_2D, tex);
+    ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_WRAP_S, ctx3d.CLAMP_TO_EDGE);
+    ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_WRAP_T, ctx3d.CLAMP_TO_EDGE);
+    ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_MIN_FILTER, ctx3d.LINEAR);
+    ctx3d.texParameteri(ctx3d.TEXTURE_2D, ctx3d.TEXTURE_MAG_FILTER, ctx3d.LINEAR);
+    img.onload = () => {
+        ctx3d.texImage2D(ctx3d.TEXTURE_2D, 0, ctx3d.RGBA, ctx3d.RGBA, ctx3d.UNSIGNED_BYTE, img);
+        resizeCanvas(cvs3d, ctx3d, img, tex);
+    };
+
+    const debouncedResize = debounce(() => {
+        requestAnimationFrame(() => resizeCanvas(cvs3d, ctx3d, img, tex));
+    }, 250);
+    window.addEventListener('resize', debouncedResize);
+
+    const observer = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            if (entry.target.classList.contains('cvs2')) {
+                requestAnimationFrame(() => resizeCanvas(entry.target, ctx3d, img, tex));
+            }
+        }
+    });
+    observer.observe(cvs3d);
+}
+
+document.querySelectorAll('.cvs').forEach(cvs => initializeCanvas(cvs));
+</script>
+
+
+
+<script>
+    function initParallaxScroll() {
+    let targetScrollY = 0, scrollY = 0, maxScrollY = 0, isDragging = false, startY = 0;
+    const smoothness = 0.08, dragSpeed = 2.2;
+    const scroller = document.querySelector('.scroll-content');
+    const parallaxElements = document.querySelectorAll('.contain-img');
+
+    const handleScroll = deltaY => targetScrollY = Math.max(0, Math.min(targetScrollY + deltaY, maxScrollY));
+
+    const isElementInView = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= window.innerHeight &&
+            rect.bottom >= 0
+        );
+    };
+
+    const smoothScroll = () => {
+        scrollY += (targetScrollY - scrollY) * smoothness;
+        scroller.style.transform = `translateY(${-scrollY}px)`;
+
+        parallaxElements.forEach(p => {
+            const speed = parseFloat(p.dataset.speed) || 0;
+            if (isElementInView(p)) {
+                const elementTop = p.getBoundingClientRect().top;
+                const elementCenter = elementTop + p.offsetHeight / 2;
+                const distanceFromCenter = elementCenter - window.innerHeight / 2;
+                p.style.transform = `translateY(${distanceFromCenter * speed}px)`;
+            }
+        });
+
+        requestAnimationFrame(smoothScroll);
+    };
+
+    ['wheel', 'keydown', 'mousedown', 'mousemove', 'mouseup', 'resize', 'load'].forEach(e => window.addEventListener(e, evt => {
+        if (e === 'wheel') handleScroll(evt.deltaY * 0.5);
+        if (e === 'keydown') {
+            handleScroll(['ArrowDown', 'ArrowRight', ' '].includes(evt.key) ? 200 : ['ArrowUp', 'ArrowLeft'].includes(evt.key) ? -200 : 0);
+        }
+        if (e === 'mousedown') {
+            isDragging = true;
+            startY = evt.clientY;
+        }
+        if (e === 'mousemove' && isDragging) {
+            handleScroll(-(evt.clientY - startY) * dragSpeed);
+            startY = evt.clientY;
+        }
+        if (e === 'mouseup') isDragging = false;
+        if (e === 'resize' || e === 'load') maxScrollY = Math.max(0, scroller.offsetHeight - window.innerHeight);
+    }));
+
+    smoothScroll();
+}
+
+initParallaxScroll();
+</script>
+
+
+
+
+<script>
+    function initParallaxScroll() {
+        let targetScrollY = 0, scrollY = 0, maxScrollY = 0, isDragging = false, startY = 0;
+        const smoothness = 0.08, dragSpeed = 2.2, 
+        scroller = document.querySelector('.scroll-content');
+    
+        const handleScroll = deltaY => targetScrollY = Math.max(0, Math.min(targetScrollY + deltaY, maxScrollY));
+        const smoothScroll = () => {
+            scrollY += (targetScrollY - scrollY) * smoothness;
+            scroller.style.transform = `translateY(${-scrollY}px)`;
+
+            // Apply parallax effect to each .box based on its data-speed attribute
+            document.querySelectorAll('.box').forEach(p => {
+                const speed = parseFloat(p.dataset.speed) || 0; // Default to 0 if no data-speed is set
+                p.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+
+            requestAnimationFrame(smoothScroll);
+        };
+        
+        ['wheel', 'keydown', 'mousedown', 'mousemove', 'mouseup', 'resize', 'load'].forEach(e => window.addEventListener(e, evt => {
+            if (e === 'wheel') handleScroll(evt.deltaY * 0.5);
+            if (e === 'keydown') {
+                handleScroll(['ArrowDown', 'ArrowRight',' '].includes(evt.key) ? 200 : ['ArrowUp', 'ArrowLeft'].includes(evt.key) ? -200 : 0);
+            }
+            if (e === 'mousedown') {
+                isDragging = true;
+                startY = evt.clientY;
+            }
+            if (e === 'mousemove' && isDragging) {
+                handleScroll(-(evt.clientY - startY) * dragSpeed);
+                startY = evt.clientY;
+            }
+            if (e === 'mouseup') isDragging = false;
+            if (e === 'resize' || e === 'load') maxScrollY = Math.max(0, scroller.offsetHeight - window.innerHeight);
+        }));
+    
+        smoothScroll();
+    }
+    
+    initParallaxScroll();
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('webgl-canvas');
+        const gl = canvas.getContext('webgl');
+
+        let maxScrollY = 0;
+        let targetScrollY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+            updateMaxScroll();
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
+
+        const vertexShaderSource = 
+        `attribute vec4 a_position;
+        attribute vec2 a_texcoord;
+        varying vec2 v_texcoord;
+        void main() {
+            gl_Position = a_position;
+            v_texcoord = a_texcoord;
+        }`;
+
+        const fragmentShaderSource = 
+        `precision mediump float;
+        varying vec2 v_texcoord;
+        uniform sampler2D u_texture;
+        uniform float u_blurAmount;
+
+        void main() {
+            vec4 color = vec4(0.0);
+            for (float x = -2.0; x <= 2.0; x += 1.0) {
+                for (float y = -2.0; y <= 2.0; y += 1.0) {
+                    color += texture2D(u_texture, v_texcoord + vec2(x, y) * u_blurAmount);
+                }
+            }
+            gl_FragColor = color / 25.0;
+        }`;
+
+        function compileShader(gl, source, type) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Shader compilation failed:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        function createProgram(gl, vertexShaderSource, fragmentShaderSource) {
+            const vertexShader = compileShader(gl, vertexShaderSource, gl.VERTEX_SHADER);
+            const fragmentShader = compileShader(gl, fragmentShaderSource, gl.FRAGMENT_SHADER);
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Program linking failed:', gl.getProgramInfoLog(program));
+                gl.deleteProgram(program);
+                return null;
+            }
+            return program;
+        }
+
+        const program = createProgram(gl, vertexShaderSource, fragmentShaderSource);
+        gl.useProgram(program);
+
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        const texcoordLocation = gl.getAttribLocation(program, 'a_texcoord');
+        const textureLocation = gl.getUniformLocation(program, 'u_texture');
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1, 0, 0,
+             1, -1, 1, 0,
+            -1,  1, 0, 1,
+            -1,  1, 0, 1,
+             1, -1, 1, 0,
+             1,  1, 1, 1
+        ]), gl.STATIC_DRAW);
+
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 4 * 4, 0);
+
+        gl.enableVertexAttribArray(texcoordLocation);
+        gl.vertexAttribPointer(texcoordLocation, 2, gl.FLOAT, false, 4 * 4, 2 * 4);
+
+        function drawScene() {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(drawScene);
+        }
+
+        drawScene();
+
+        let scrollY = 0;
+        const smoothness = 0.08;
+
+        function smoothScroll() {
+            scrollY += (targetScrollY - scrollY) * smoothness;
+            const scrollContent = document.querySelector('.scroll-content');
+            if (scrollContent) {
+                scrollContent.style.transform = `translateY(${-Math.round(scrollY)}px)`;
+            }
+
+            document.querySelectorAll('.sticky').forEach(stickyEl => {
+                const parent = stickyEl.parentElement;
+                const parentRect = parent.getBoundingClientRect();
+                const stickyRect = stickyEl.getBoundingClientRect();
+                const parentTop = parentRect.top;
+                const parentBottom = parentRect.bottom;
+                const stickyHeight = stickyRect.height;
+
+                if (parentTop <= 0 && parentBottom > stickyHeight) {
+                    // Stick to the top
+                    stickyEl.style.transform = `translateY(${-parentTop}px)`;
+                } else if (parentBottom <= stickyHeight) {
+                    // Stop at the bottom of the parent
+                    const maxTranslate = parentRect.height - stickyHeight;
+                    stickyEl.style.transform = `translateY(${maxTranslate}px)`;
+                } else {
+                    // Reset to original position
+                    stickyEl.style.transform = 'translateY(0)';
+                }
+            });
+
+            requestAnimationFrame(smoothScroll);
+        }
+        
+        function handleWheel(event) {
+            const scrollMultiplier = 0.5;
+            targetScrollY += event.deltaY * scrollMultiplier;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        window.addEventListener('wheel', handleWheel);
+        smoothScroll();
+
+        let isDragging = false;
+        let startY = 0;
+        const dragSpeedMultiplier = 2.2; 
+
+        function handleMouseDown(event) {
+            isDragging = true;
+            startY = event.clientY;
+        }
+
+        function handleMouseMove(event) {
+            if (!isDragging) return;
+
+            const deltaY = (event.clientY - startY) * dragSpeedMultiplier;
+            startY = event.clientY;
+
+            targetScrollY -= deltaY;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+        }
+
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        window.addEventListener('mouseleave', handleMouseUp);
+
+        function handleKeyDown(event) {
+            const scrollStep = 200;
+
+            if (event.key === 'ArrowDown' || event.key === 'ArrowRight' || event.key === ' ') {
+                targetScrollY += scrollStep;
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                targetScrollY -= scrollStep;
+            }
+            targetScrollY = Math.max(0, Math.min(targetScrollY, maxScrollY));
+        }
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        function updateMaxScroll() {
+            const scrollContent = document.querySelector('.scroll-content');
+            if (scrollContent) {
+                maxScrollY = Math.max(0, scrollContent.offsetHeight - window.innerHeight);
+                targetScrollY = Math.min(targetScrollY, maxScrollY);
+            } else {
+                console.error('.scroll-content not found.');
+            }
+        }
+
+        window.addEventListener('load', updateMaxScroll);
+        window.addEventListener('resize', resizeCanvas);
+
+        function render() {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            requestAnimationFrame(render);
+        }
+
+        render();
+    });
+</script>
+
+
+    
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'CANVAS') {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll('.item p');
+      const hundred = document.querySelector('.hundred'); // Element to trigger the animation
+  
+      // Custom easing function
+      const easingFunction = t => 1 - Math.pow(1 - t, 5);
+  
+      // Animate element with custom easing
+      function animateWithEasing(element, index, duration = 1800, delay = 0.1) {
+        let start = null;
+  
+        const animate = timestamp => {
+          if (!start) start = timestamp;
+          let elapsed = (timestamp - start) / duration;
+  
+          // Apply the easing function
+          let easedProgress = easingFunction(elapsed);
+          let translateY = 100 * (1 - easedProgress); // Starts at 100px and moves to 0px
+  
+          element.style.transform = `translateY(${translateY}px)`;
+  
+          if (elapsed < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            element.style.transform = 'translateY(0)'; // Ensure it ends exactly at 0px
+          }
+        };
+  
+        setTimeout(() => requestAnimationFrame(animate), index * delay * 1000); // Apply stagger delay
+      }
+  
+      // Intersection Observer setup for .hundred
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log('Hundred is in view, starting animation');
+            // Trigger animations for all items
+            items.forEach((item, index) => {
+              animateWithEasing(item, index);
+            });
+            // Optionally unobserve after first trigger if desired
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+  
+      // Initialize all items with transform translateY for hidden state
+      items.forEach(item => {
+        item.style.transform = 'translateY(100%)'; // Initially positioned out of view
+      });
+  
+      // Observe the .hundred element
+      if (hundred) {
+        observer.observe(hundred);
+      } else {
+        console.error('.hundred element not found');
+      }
+    });
+  </script>
+  
+
+
+
+
+
+
+
+  
+
+  <script>
+    function indexPageTransition() {
+        // Page onload animation for .smol and .big elements
+        function pageOnloadAnimation() {
+            const smolElements = document.querySelectorAll('.smol');
+            smolElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('mini-reveal');
+                    renderText(element, true);
+                }, index * 80); // 80ms stagger between each element
+            }, 250);
+
+            // Adding delay for big elements animation (e.g., 1 second delay)
+            setTimeout(() => {
+                const bigElements = document.querySelectorAll('.big');
+                bigElements.forEach((element) => {
+                    element.classList.add('big-reveal');
+                    renderText(element, true);
+                });
+            } ); // 250ms delay for the big elements
+        }
+
+        // Initialize box animations
+        const boxes = document.querySelectorAll(".box");
+
+        // Set initial styles for all boxes
+        boxes.forEach(box => {
+            box.style.position = "absolute"; // Ensure absolute positioning
+            if (box.classList.contains('box1')) {
+                box.style.top = "-100vh"; // Start from above the viewport
+            } else {
+                box.style.bottom = "-100vh"; // Start from below the viewport
+            }
+        });
+
+        // Trigger the animation on load with a staggered delay
+        boxes.forEach((box, index) => {
+            setTimeout(() => {
+                box.style.transition = "top 2.5s cubic-bezier(0.19, 1, 0.22, 1), bottom 2.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0s ease";
+
+                if (box.classList.contains('box1')) {
+                    box.style.top = ""; // Clear top to use normal CSS positioning
+                } else {
+                    box.style.bottom = ""; // Clear bottom to use normal CSS positioning
+                }
+
+                box.style.opacity = "1"; // Fade in
+            }, index * 100); // Stagger the start time by 100ms per box
+        });
+
+        // Call the page onload animation function
+        pageOnloadAnimation();
+    }
+
+    // Listen for the window load event to ensure all assets are loaded
+    window.addEventListener('load', indexPageTransition);
+</script>
+
+
+<script>
+
+    document.addEventListener('wheel', function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+    
+    
+    document.addEventListener('touchmove', function(event) {
+        if (event.scale !== 1) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+    
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    </script>
+
+
+
+</body>
+</html>

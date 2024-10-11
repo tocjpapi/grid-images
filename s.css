@@ -1,0 +1,506 @@
+
+::-moz-selection {
+  color: #fff;
+  background: #000;
+  text-shadow: none
+}
+
+::selection {
+  color: #fff;
+  background: #000;
+  text-shadow: none
+}
+
+@font-face {
+  font-family: 'stawp';
+  src: url(/static/font/Granjon.woff2);
+}
+
+@font-face {
+  font-family: 'yass';
+  src: url(/static/font/nm4.woff2);
+}
+
+@font-face {
+  font-family: 'lulu';
+  src: url(/static/font/nm5.woff2);
+}
+
+:root {
+--bg: #f5f5f5; 
+--text:  #302e2e;
+}
+
+
+      /* Styles remain the same */
+      *,
+      *:before,
+      *:after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+      }
+
+
+
+
+      html {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          font-family: 'yass';
+          background-color: var(--bg);
+          color: var(--text);
+
+          font-size: calc(100vw / 1512 * 10);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+      }
+
+      #webgl-canvas{
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          background: none;
+          image-rendering: auto; 
+
+      }
+
+      #container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          overflow: hidden;
+          font-size: 3.1rem;
+      }
+
+      .scroll-content {
+          position: absolute;
+          width: 100vw;
+          height: fit-content;
+          box-sizing: border-box;
+      }
+
+      .contain-image {
+          height: 100%;
+          width: 100%;
+          animation: zoom 1s ease;
+      }
+
+      .elder {
+          height: 109vh;
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .last {
+        height: 101vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+      .mini-img {
+          height: 50vh;
+          width: 50vw;
+          transition: height 1s ease;
+          overflow: hidden;
+      }
+
+      .mini-img:hover {
+          height: 70vh;
+      }
+
+      .cvs {
+          height: 100%;
+          width: 100%;
+
+      }
+
+      .cvs2{
+          height: 50vh;
+          width: 50vw;
+          transition: height 1s ease, width 1s ease;
+      }
+
+      .cvs2:hover {
+          height: 70vh;
+
+      }
+
+      a{
+        color: var(--text);
+      }
+
+      canvas{
+        filter: grayscale();
+      }
+
+
+
+
+      .number1{
+  width: 63rem;
+  line-height: 5.2rem;
+  font-size: 3.1rem;
+  position: relative;
+}
+
+
+.number1 p{
+  width: 100%;  
+}
+
+
+
+
+.text-canvas {
+          position: relative;
+          top: 0;
+          left: 0;
+          z-index: 1; /* Position the canvas on top of the text */
+
+          
+      }
+
+
+
+
+.hover-text{
+  font-size: 16rem;
+ color: var(--text);
+  cursor: pointer;
+  width: fit-content;
+  height: 100vh;
+  width: 100vw;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+
+
+
+.start{
+  font-size: 2rem;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+  z-index: 1;
+  opacity: 0.2;
+  color: #ededed;
+
+  mix-blend-mode: difference;
+  font-family: 'lulu';
+}
+
+.grandeur{
+  height: fit-content;
+  width: 100vw;
+
+}
+
+.n-o{
+  scale: 1.14;
+  opacity: 0;
+  animation: scale-out 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes scale-out{
+  to{
+      opacity: 1;
+      scale: 1;
+  }
+}
+
+.version{
+  position: absolute;
+  bottom: -22rem;
+  left: 95px;
+  transform: tr;
+  color: #ededed;
+  font-size: 26rem;
+  opacity:   1;
+  cursor: pointer;
+  overflow: hidden;
+  animation: move 2.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes move {
+  from{
+    opacity: 0;
+    transform: translateY(30%);
+  }
+}
+
+
+.emotion{
+  position: absolute;
+  color: #ededed;
+  z-index: 1;
+  font-size: 1.2rem;
+  top: 3rem;
+  right: 20rem;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.big-boss{
+  position: absolute;
+  height: 26rem;
+  top: 54%;
+  transform: translateY(-50%);
+  z-index: 999;
+  width: 100vw;
+  overflow: hidden;
+}
+
+@keyframes mo{
+  from{
+      transform: translateY(100%);
+  }
+}
+
+
+
+/* all-about-sticky */
+
+.l-m {
+display: flex;
+align-items: center;
+}
+
+.l-m canvas{
+  transition: opacity 0.3s ease;
+}
+
+.l-m {
+  position: relative;
+}
+
+
+.l-m:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid var(--text);
+  mix-blend-mode: difference; 
+  pointer-events: none; 
+  box-sizing: border-box;
+}
+
+.l-m:hover .cvs {
+  opacity: 0;
+}
+
+.l-m:hover .cross {
+transform: translate(-50%, -34%) scale(1);
+opacity: 1;
+}
+
+.cross {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -34%) scale(0);
+font-size: 5rem;
+z-index: -1;
+opacity: 0;
+font-weight: 100;
+transition: transform 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+transform-origin: center;
+font-family: 'stawp';
+
+}
+
+.first-sticky-element-boss{
+  height: 73rem;
+  width: 100vw;
+  position: relative;
+}    
+.first-sticky-element{
+  height: 100%;
+  width: 55rem;
+  position: absolute;
+  left: 15rem;
+}
+
+.second-sticky-element-boss{
+  height: 50rem;
+  width: 100vw;
+  position: relative;
+  margin-top: -20rem;
+}    
+.second-sticky-element{
+  height: 100%;
+  width: 64rem;
+  position: absolute;
+  right: 4rem;
+}
+
+
+.third-sticky-element-boss{
+  height: 100rem;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}    
+.third-sticky-element{
+  height: 73rem;
+  width: 55rem;
+
+
+}
+
+
+
+#text-content {
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    position: absolute;
+    animation: cool 1s ease forwards;
+  }
+
+  .text-canvas {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+
+}
+
+
+
+
+  .tint{
+    opacity: 0.05;
+    background: #514e00;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    z-index: 999999999999;
+  }
+  
+
+
+.nana{
+    color: red;
+    font-size: 3em;
+    font-weight: bold;
+    animation: cool 2s ease-in-out infinite;
+}
+
+.right-side{
+  height: 100%;
+  width: 40%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+
+.right-side-inner{
+  height: 100%;
+  width: 100%;
+  line-height: 5.2rem;
+  font-size: 3.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.spacer{
+  height: 2.2rem;
+}
+
+.vibe{
+  width: 40rem;
+}
+
+.vibe p{
+  width: 40rem;
+}
+
+.point{
+  line-height: 3.9rem;
+  font-size: 2.5rem;
+}
+
+.back-to-top{
+  cursor: pointer;
+}
+
+.general{
+  height: 50%;
+  opacity: 0.5;
+  margin-left: 4rem;
+
+}
+
+.item-no{
+  position: absolute;
+  right: 3rem;
+  bottom: 15rem;
+}
+
+.back-to-top{
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+} 
+
+.opt{
+  cursor: pointer;
+}
+
+.big-picture{
+  height: calc(100vh - 6rem);
+  width: 42vw;
+  background: #000;
+  position: absolute;
+  left: 3rem;
+  bottom: 3rem;
+}
+
+
+.section{
+  display: flex;
+  gap: 15rem;
+  position: relative;
+}
+
+.number2{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
